@@ -1,0 +1,214 @@
+
+<h4>----------------------   /markdown ---------------------------------------</h4>
+<div class="markdown-content" style="display: none;">
+
+## このページの機能 
+* markdown,mermaid,csvデータをhtmlデータに変換します。  
+    markdown,mermaid,csvデータ,htmlデータは、混在できますが、入れ子にできません。
+* 各データ(markdown,mermaid,csvデータ)は、表示用のdivに格納します。
+* 表示用のdivのclass属性を指定して、表示を切り替えている。
+    * markdownの表示用のdivには、class属性に"markdown-content"を指定する。
+    * mermaidの表示用のdivには、class属性に"mermaid-content"を指定する。
+    * csvの表示用のdivには、class属性に"csv-content"を指定する。  
+```html
+        (例)  
+        &ltdiv class="markdown-content" style="display: none;"&gt
+        markdown データ
+        &lt/div&gt
+```
+* データのフアイル名、data.htmlとします。  
+<h2>abc</h2>
+
+
+### 標準のmarkdownに含まれていない事項
+* htmlで表示している項目  
+    * 位置の表示(ジャンプ先のidを指定)
+    * 絵文字の表示（参考）[絵文字のサイト](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
+    * 数式の表示(数式表示用のcdnを使用)
+    
+    * htmlを組み合わせて表示いている項目  
+        * チェックボックス表示(cssを使用)  
+        * リンクカードの表示(cssを使用)  
+        * 補足説明の表示(cssを使用)
+    
+****
+### ---marldown チートシート---- 
+# 見出し1 
+## 見出し2  
+### 見出し3  
+#### 見出し4
+***
+### コードブロック
+``` 
+let a = 1;    
+console.log('a');  
+console.log('XYZ');     
+```
+***
+### ブロック引用表示（前後に空行が必要）
+
+> 引用表示1  
+> 引用表示2  
+> 引用表示3  
+
+***
+### インライン表示  
+`console.log('abc');`  
+`` ` `` で囲むとインライン表示になる。`` `console.log('abc');` ``  
+`rgb(255,0,0)`（色表示がない！）
+***
+### 強調表示  
+イタリック  *abc* ,太字 **abc** ,取り消し線 ~~abc~~  
+***
+### リスト表示
+- abc
+- XYZ
+***
+### 番号付きリスト表示
+1. abc
+2. XYZ
+***
+### 水平線表示
+***  
+### 脚注リンク表示 (リンク先がページ内にある場合) 
+(リンク先は、marldown外の場所に定義する。aタグで、id="note"で設定する)  
+[(注1)](#note1)  
+***
+### リンク表示(リンク先が別urlの場合)
+[googleへのリンク](https://www.google.com/)  
+
+***
+### 画像表示  
+![画像](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)
+***
+### テーブル表示
+|見出し1|見出し2|見出し3|
+|---|---|---|
+|データ1|データ2|データ3|
+|データ4|データ5|データ6|
+|データ7|データ8|データ9|
+</div>
+
+<h4>----------------------markdown/html ---------------------------------------</h4>
+<h3>画像表示</h3>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" width="100">
+<hr>
+<h3>位置の表示</h3>
+<a id="note1">[1]</a>: 補足説明の内容
+<hr>
+<h3>絵文字表示(「&#x」+コード番号(5桁))</h3>
+絵文字です &#x1F60A;<br>
+🤗  &#x1F339 :rose:
+<hr>
+<h3>数式表示</h3>
+<p>インライン数式: \( e^{i\pi} + 1 = 0 \)</p>
+
+<p>ディスプレイ数式: \[ \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi} \] </p>
+<hr>
+<h3>チェックボックス表示</h3>
+<ul class="checkbox-list">
+    <li><input type="checkbox" checked> チェックボックス１</li>
+    <li><input type="checkbox" > チェックボックス２</li>
+</ul>
+<hr>
+
+<h3>リンクカード表示</h3>
+<a href="https://www.example.com" class="link-card"> 
+    <img src="https://via.placeholder.com/50" alt="サムネイル"> 
+    <div class="content"> 
+        <div class="title">リンクカードのタイトル</div> 
+        <div class="description">リンクカードの説明文がここに入ります。</div> 
+    </div>
+</a>
+<hr>
+
+<h3>補足カード表示</h3>
+<div class="note-info">補足カードの内容</div>
+<div class="note-warn">注意カードの内容</div>
+<div class="note-alert">警告カードの内容</div>
+
+
+<h3>テーブル表示</h3>
+<table>
+    <thead>
+        <tr>
+            <th>見出し1</th>
+            <th>見出し2</th>
+            <th>見出し3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>データ1</td>
+            <td>データ2</td>
+            <td>データ3</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h3>リスト表示</h3>
+<ul>
+<li>リスト1</li>  
+<li>リスト2</li>
+</ul>
+<hr>
+<h3>ブロック引用表示</h3>
+<pre><blockquote>console.log("abc");   
+const a = 1;
+console.log(a);
+</blockquote></pre>
+<hr>
+<h3>折りたたみ表示</h3>
+<pre><details>
+    <summary>折りたたみ表示</summary>
+    折りたたみ表示の内容
+    console.log('abc');      
+</details></pre>
+<hr>
+<h4>----------------------html/markdown ---------------------------------------</h4>
+<div class="markdown-content" style="display: none;">
+### マークダウン１
+</div>
+<h4>----------------------markdown/csv ---------------------------------------</h4>
+<div class="csv-content" style="display: none;">
+見出し1,見出し2,見出し3
+データ1,データ2,データ3
+データ4,データ5,データ6
+データ7,データ8,データ9
+</div>
+<h4>----------------------csv/mermaid ---------------------------------------</h4>
+<div class="mermaid-content" style="display: none;">
+graph TB; 
+subgraph 100:xy
+    101(1: xxx)
+    102(2: yyy)
+end
+</div>
+
+<h4>---------------------mermaid/plantuml ---------------------------------------</h4>
+<div class="plantuml-content" style="display: none;">
+@startuml
+start
+:ユーザーがページを開く;
+if (ユーザーがログインしているか) then (yes)
+  :ホームページを表示;
+else (no)
+  :ログインページを表示;
+endif
+:ユーザーの操作を待機;
+stop
+@enduml
+</div>
+<h4>----------------------pluntuml/markdown ---------------------------------------</h4>
+<div class="markdown-content" style="display: none;">
+### マークダウン2
+</div>
+<h4>----------------------markdown/mermaid ---------------------------------------</h4>
+<div class="mermaid-content" style="display: none;">
+graph TB; 
+subgraph 200:ab
+    101(1: aaa)
+    102(2: bbb)
+end
+</div>
+<h4>----------------------mermaid/  ---------------------------------------</h4>
