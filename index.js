@@ -76,7 +76,7 @@ function renderPlantuml() {
     });
 }
 
-fetch('./index.data')
+fetch('./index.txt')
 .then(response => response.text())
 .then(text => {
     document.getElementById('root').innerHTML = text;
